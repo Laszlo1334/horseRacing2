@@ -1,0 +1,4 @@
+2025-04-20 18:35:10 [http-nio-8080-exec-2] INFO  com.example.horseracing2.controllers.PlacedBetController - POST /edit-bet payload=com.example.horseracing2.DTO.UpdateBetRequest@721562c8
+2025-04-20 18:35:10 [http-nio-8080-exec-2] INFO  com.example.horseracing2.services.PlacedBetService - PlacedBetService.updatePlacedBetState called id=22 newState=WIN
+2025-04-20 18:35:10 [http-nio-8080-exec-3] INFO  com.example.horseracing2.controllers.AdminController - GET /admin-history called
+2025-04-20 18:35:10 [http-nio-8080-exec-3] INFO  com.example.horseracing2.services.AdminService - AdminService.getAdminHistory called

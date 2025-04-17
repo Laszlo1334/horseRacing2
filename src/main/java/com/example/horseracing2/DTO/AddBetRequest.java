@@ -1,0 +1,40 @@
+package com.example.horseracing2.DTO;
+
+import java.math.BigDecimal;
+
+public class AddBetRequest {
+    private int raceId;
+    private int horseId;
+    private BigDecimal multiplier;
+    private String betType;
+
+    public AddBetRequest() {}
+
+    public int getRaceId() {
+        return raceId;
+    }
+    public void setRaceId(int raceId) {
+        this.raceId = raceId;
+    }
+
+    public int getHorseId() {
+        return horseId;
+    }
+    public void setHorseId(int horseId) {
+        this.horseId = horseId;
+    }
+
+    public BigDecimal getMultiplier() {
+        return multiplier;
+    }
+    public void setMultiplier(BigDecimal multiplier) {
+        this.multiplier = multiplier;
+    }
+
+    public String getBetType() {
+        return betType;
+    }
+    public void setBetType(String betType) {
+        this.betType = betType;
+    }
+}
