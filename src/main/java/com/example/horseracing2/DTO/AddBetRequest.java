@@ -8,20 +8,11 @@ public class AddBetRequest {
     private BigDecimal multiplier;
     private String betType;
 
-    public AddBetRequest() {
-    }
-
-    public AddBetRequest(int raceId, int horseId, BigDecimal multiplier, String betType) {
-        this.raceId = raceId;
-        this.horseId = horseId;
-        this.multiplier = multiplier;
-        this.betType = betType;
-    }
+    public AddBetRequest() {}
 
     public int getRaceId() {
         return raceId;
     }
-
     public void setRaceId(int raceId) {
         this.raceId = raceId;
     }
@@ -29,7 +20,6 @@ public class AddBetRequest {
     public int getHorseId() {
         return horseId;
     }
-
     public void setHorseId(int horseId) {
         this.horseId = horseId;
     }
@@ -37,7 +27,6 @@ public class AddBetRequest {
     public BigDecimal getMultiplier() {
         return multiplier;
     }
-
     public void setMultiplier(BigDecimal multiplier) {
         this.multiplier = multiplier;
     }
@@ -45,7 +34,6 @@ public class AddBetRequest {
     public String getBetType() {
         return betType;
     }
-
     public void setBetType(String betType) {
         this.betType = betType;
     }

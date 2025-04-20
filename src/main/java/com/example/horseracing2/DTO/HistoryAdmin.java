@@ -1,5 +1,6 @@
 package com.example.horseracing2.DTO;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
@@ -74,10 +75,12 @@ public class HistoryAdmin {
         this.multiplier = multiplier;
     }
 
+    @JsonProperty("createdAt")
     public Timestamp getCreateAt() {
         return createAt;
     }
 
+    @JsonProperty("createdAt")
     public void setCreateAt(Timestamp createAt) {
         this.createAt = createAt;
     }

@@ -1,7 +1,8 @@
 package com.example.horseracing2.services;
 
 import com.example.horseracing2.DTO.MakeBetRequest;
-import com.example.horseracing2.DTO.UpdateBetRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,6 +12,7 @@ import java.sql.Timestamp;
 
 @Service
 public class PlacedBetService {
+    private static final Logger log = LoggerFactory.getLogger(PlacedBetService.class);
     private final JdbcTemplate jdbc;
 
     public PlacedBetService(JdbcTemplate jdbc) {
@@ -19,6 +21,7 @@ public class PlacedBetService {
 
     @Transactional
     public void makeBet(MakeBetRequest req) {
+        log.info("PlacedBetService.makeBet called with {}", req);
         Integer userId = jdbc.queryForObject(
                 "SELECT id FROM users WHERE email = ?",
                 (rs, rn) -> rs.getInt("id"),
@@ -29,8 +32,10 @@ public class PlacedBetService {
                 (rs, rn) -> rs.getBigDecimal("wallet"),
                 req.getEmail()
         );
+        log.debug("User {} wallet balance: {}", userId, wallet);
         if (wallet.compareTo(req.getSum()) < 0) {
-            throw new IllegalArgumentException("Insufficient funds");
+            log.warn("Insufficient funds userId={} wallet={} requested={}", userId, wallet, req.getSum());
+            throw new IllegalArgumentException("Недостатньо коштів");
         }
         jdbc.queryForObject(
                 "SELECT id FROM bets WHERE id = ?",
@@ -45,17 +50,17 @@ public class PlacedBetService {
                 "UPDATE users SET wallet = wallet - ? WHERE id = ?",
                 req.getSum(), userId
         );
+        log.info("Bet placed for userId={}, betId={}", userId, req.getBetId());
     }
 
-    public boolean updateBet(UpdateBetRequest req) {
-        String sql = "UPDATE bets SET race_id = ?, horses_id = ?, multyplier = ?, bet_type = ? WHERE id = ?";
-        return jdbc.update(
-                sql,
-                req.getRaceId(),
-                req.getHorsesId(),
-                req.getMultiplier(),
-                req.getBetType(),
-                req.getId()
-        ) > 0;
+    @Transactional
+    public boolean updatePlacedBetState(int placedBetId, String newState) {
+        log.info("PlacedBetService.updatePlacedBetState called id={} newState={}", placedBetId, newState);
+        int updated = jdbc.update(
+                "UPDATE placed_bets SET state = ? WHERE id = ?",
+                newState, placedBetId
+        );
+        log.debug("Rows updated in placed_bets: {}", updated);
+        return updated > 0;
     }
 }
