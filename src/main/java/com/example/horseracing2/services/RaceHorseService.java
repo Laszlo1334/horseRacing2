@@ -1,7 +1,7 @@
 package com.example.horseracing2.services;
 
-import com.example.horseracing2.models.Horse;
-import com.example.horseracing2.models.Race;
+import com.example.horseracing2.DTO.Horse;
+import com.example.horseracing2.DTO.Race;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 

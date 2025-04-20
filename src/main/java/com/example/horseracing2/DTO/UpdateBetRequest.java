@@ -1,21 +1,31 @@
-package com.example.horseracing2.models;
+package com.example.horseracing2.DTO;
 
 import java.math.BigDecimal;
 
-public class AddBetRequest {
+public class UpdateBetRequest {
+    private int id;
     private int raceId;
-    private int horseId;
+    private int horsesId;
     private BigDecimal multiplier;
     private String betType;
 
-    public AddBetRequest() {
+    public UpdateBetRequest() {
     }
 
-    public AddBetRequest(int raceId, int horseId, BigDecimal multiplier, String betType) {
+    public UpdateBetRequest(int id, int raceId, int horsesId, BigDecimal multiplier, String betType) {
+        this.id = id;
         this.raceId = raceId;
-        this.horseId = horseId;
+        this.horsesId = horsesId;
         this.multiplier = multiplier;
         this.betType = betType;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getRaceId() {
@@ -26,12 +36,12 @@ public class AddBetRequest {
         this.raceId = raceId;
     }
 
-    public int getHorseId() {
-        return horseId;
+    public int getHorsesId() {
+        return horsesId;
     }
 
-    public void setHorseId(int horseId) {
-        this.horseId = horseId;
+    public void setHorsesId(int horsesId) {
+        this.horsesId = horsesId;
     }
 
     public BigDecimal getMultiplier() {

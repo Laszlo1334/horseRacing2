@@ -1,7 +1,7 @@
 package com.example.horseracing2.controllers;
 
-import com.example.horseracing2.models.UserHistory;
-import com.example.horseracing2.models.UserWallet;
+import com.example.horseracing2.DTO.UserHistory;
+import com.example.horseracing2.DTO.UserWallet;
 import com.example.horseracing2.services.UserService;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.ResponseEntity;

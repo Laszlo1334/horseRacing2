@@ -1,8 +1,7 @@
 package com.example.horseracing2.controllers;
 
 import com.example.horseracing2.services.RaceHorseService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;

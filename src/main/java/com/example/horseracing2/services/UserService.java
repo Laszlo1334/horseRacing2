@@ -1,7 +1,7 @@
 package com.example.horseracing2.services;
 
-import com.example.horseracing2.models.UserHistory;
-import com.example.horseracing2.models.UserWallet;
+import com.example.horseracing2.DTO.UserHistory;
+import com.example.horseracing2.DTO.UserWallet;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 

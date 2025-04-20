@@ -1,8 +1,8 @@
 package com.example.horseracing2.services;
 
-import com.example.horseracing2.models.AddBetRequest;
-import com.example.horseracing2.models.BetListDto;
-import com.example.horseracing2.models.EditBetRequest;
+import com.example.horseracing2.DTO.AddBetRequest;
+import com.example.horseracing2.DTO.BetListDto;
+import com.example.horseracing2.DTO.EditBetRequest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 

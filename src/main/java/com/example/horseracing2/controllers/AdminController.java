@@ -1,9 +1,8 @@
 package com.example.horseracing2.controllers;
 
-import com.example.horseracing2.models.HistoryAdmin;
+import com.example.horseracing2.DTO.HistoryAdmin;
 import com.example.horseracing2.services.AdminService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,8 +14,8 @@ public class AdminController {
         this.svc = svc;
     }
 
-    @GetMapping("/admin-history")
-    public List<HistoryAdmin> getHistory() {
+    @GetMapping({"/api/admin/history", "/admin-history"})
+    public List<HistoryAdmin> getAdminHistory() {
         return svc.getAdminHistory();
     }
 }

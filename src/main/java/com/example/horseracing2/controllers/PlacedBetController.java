@@ -1,7 +1,7 @@
 package com.example.horseracing2.controllers;
 
-import com.example.horseracing2.models.MakeBetRequest;
-import com.example.horseracing2.models.UpdateBetRequest;
+import com.example.horseracing2.DTO.MakeBetRequest;
+import com.example.horseracing2.DTO.UpdateBetRequest;
 import com.example.horseracing2.services.PlacedBetService;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.ResponseEntity;
@@ -30,11 +30,12 @@ public class PlacedBetController {
             return ResponseEntity.status(500).body(Map.of("error", e.getMessage()));
         }
     }
-
-    @PostMapping("/update-bet")
+    @PostMapping("/edit-bet")
     public ResponseEntity<?> updateBet(@RequestBody UpdateBetRequest req) {
         boolean ok = svc.updateBet(req);
-        if (!ok) return ResponseEntity.status(404).body(Map.of("error", "Bet not found or not updated"));
+        if (!ok) {
+            return ResponseEntity.status(404).body(Map.of("error", "Bet not found or not updated"));
+        }
         return ResponseEntity.ok(Map.of("success", true));
     }
 }

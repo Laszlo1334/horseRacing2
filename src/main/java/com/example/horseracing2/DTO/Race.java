@@ -1,4 +1,4 @@
-package com.example.horseracing2.models;
+package com.example.horseracing2.DTO;
 
 import java.sql.Timestamp;
 

@@ -1,8 +1,7 @@
 package com.example.horseracing2.services;
 
-import com.example.horseracing2.models.MakeBetRequest;
-import com.example.horseracing2.models.UpdateBetRequest;
-import org.springframework.dao.EmptyResultDataAccessException;
+import com.example.horseracing2.DTO.MakeBetRequest;
+import com.example.horseracing2.DTO.UpdateBetRequest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
